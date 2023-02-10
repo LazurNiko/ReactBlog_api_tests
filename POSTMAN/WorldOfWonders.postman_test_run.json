@@ -1,0 +1,585 @@
+{
+	"id": "a2bc726d-70f0-4f1a-8d5d-3f88e8d8bb4f",
+	"name": "WorldOfWonders",
+	"timestamp": "2023-02-10T09:07:51.912Z",
+	"collection_id": "17982896-3561433f-c133-47ed-8a5f-fc17cdae88ab",
+	"folder_id": 0,
+	"environment_id": "17982896-0da40a66-9ce9-49fe-9a6e-7ee643a39192",
+	"totalPass": 140,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "a9c4fa38-7b0a-4528-8644-a2ec3f9412be",
+			"name": "Sign up with password length less then 6 characters",
+			"time": 589,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true,
+				"Responce to contain 'error' property": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 10,
+					"fail": 0
+				},
+				"Responce to contain 'error' property": {
+					"pass": 10,
+					"fail": 0
+				}
+			},
+			"times": [
+				454,
+				371,
+				343,
+				329,
+				350,
+				337,
+				411,
+				379,
+				692,
+				589
+			],
+			"allTests": [
+				{
+					"Status code is 400": true,
+					"Responce to contain 'error' property": true
+				},
+				{
+					"Status code is 400": true,
+					"Responce to contain 'error' property": true
+				},
+				{
+					"Status code is 400": true,
+					"Responce to contain 'error' property": true
+				},
+				{
+					"Status code is 400": true,
+					"Responce to contain 'error' property": true
+				},
+				{
+					"Status code is 400": true,
+					"Responce to contain 'error' property": true
+				},
+				{
+					"Status code is 400": true,
+					"Responce to contain 'error' property": true
+				},
+				{
+					"Status code is 400": true,
+					"Responce to contain 'error' property": true
+				},
+				{
+					"Status code is 400": true,
+					"Responce to contain 'error' property": true
+				},
+				{
+					"Status code is 400": true,
+					"Responce to contain 'error' property": true
+				},
+				{
+					"Status code is 400": true,
+					"Responce to contain 'error' property": true
+				}
+			]
+		},
+		{
+			"id": "b4addaa9-854b-4e84-8704-0c0612f8bf90",
+			"name": "Sign up with invalid email",
+			"time": 210,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true,
+				"Responce to contain 'error' property": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 10,
+					"fail": 0
+				},
+				"Responce to contain 'error' property": {
+					"pass": 10,
+					"fail": 0
+				}
+			},
+			"times": [
+				214,
+				288,
+				250,
+				239,
+				224,
+				242,
+				216,
+				276,
+				210,
+				210
+			],
+			"allTests": [
+				{
+					"Status code is 400": true,
+					"Responce to contain 'error' property": true
+				},
+				{
+					"Status code is 400": true,
+					"Responce to contain 'error' property": true
+				},
+				{
+					"Status code is 400": true,
+					"Responce to contain 'error' property": true
+				},
+				{
+					"Status code is 400": true,
+					"Responce to contain 'error' property": true
+				},
+				{
+					"Status code is 400": true,
+					"Responce to contain 'error' property": true
+				},
+				{
+					"Status code is 400": true,
+					"Responce to contain 'error' property": true
+				},
+				{
+					"Status code is 400": true,
+					"Responce to contain 'error' property": true
+				},
+				{
+					"Status code is 400": true,
+					"Responce to contain 'error' property": true
+				},
+				{
+					"Status code is 400": true,
+					"Responce to contain 'error' property": true
+				},
+				{
+					"Status code is 400": true,
+					"Responce to contain 'error' property": true
+				}
+			]
+		},
+		{
+			"id": "83819ce2-252c-4b7c-a07e-5af368c83007",
+			"name": "Should be able to create account",
+			"time": 684,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Have all response keys": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 10,
+					"fail": 0
+				},
+				"Have all response keys": {
+					"pass": 10,
+					"fail": 0
+				}
+			},
+			"times": [
+				545,
+				596,
+				603,
+				652,
+				559,
+				638,
+				549,
+				601,
+				672,
+				684
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Have all response keys": true
+				},
+				{
+					"Status code is 200": true,
+					"Have all response keys": true
+				},
+				{
+					"Status code is 200": true,
+					"Have all response keys": true
+				},
+				{
+					"Status code is 200": true,
+					"Have all response keys": true
+				},
+				{
+					"Status code is 200": true,
+					"Have all response keys": true
+				},
+				{
+					"Status code is 200": true,
+					"Have all response keys": true
+				},
+				{
+					"Status code is 200": true,
+					"Have all response keys": true
+				},
+				{
+					"Status code is 200": true,
+					"Have all response keys": true
+				},
+				{
+					"Status code is 200": true,
+					"Have all response keys": true
+				},
+				{
+					"Status code is 200": true,
+					"Have all response keys": true
+				}
+			]
+		},
+		{
+			"id": "c10a80ae-815a-4f12-a804-3eeaa0aef8c3",
+			"name": "Should be able to login",
+			"time": 297,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Responce to not contain 'errors' property": true,
+				"Have all response keys": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 10,
+					"fail": 0
+				},
+				"Responce to not contain 'errors' property": {
+					"pass": 10,
+					"fail": 0
+				},
+				"Have all response keys": {
+					"pass": 10,
+					"fail": 0
+				}
+			},
+			"times": [
+				292,
+				272,
+				297,
+				273,
+				272,
+				264,
+				268,
+				259,
+				292,
+				297
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Responce to not contain 'errors' property": true,
+					"Have all response keys": true
+				},
+				{
+					"Status code is 200": true,
+					"Responce to not contain 'errors' property": true,
+					"Have all response keys": true
+				},
+				{
+					"Status code is 200": true,
+					"Responce to not contain 'errors' property": true,
+					"Have all response keys": true
+				},
+				{
+					"Status code is 200": true,
+					"Responce to not contain 'errors' property": true,
+					"Have all response keys": true
+				},
+				{
+					"Status code is 200": true,
+					"Responce to not contain 'errors' property": true,
+					"Have all response keys": true
+				},
+				{
+					"Status code is 200": true,
+					"Responce to not contain 'errors' property": true,
+					"Have all response keys": true
+				},
+				{
+					"Status code is 200": true,
+					"Responce to not contain 'errors' property": true,
+					"Have all response keys": true
+				},
+				{
+					"Status code is 200": true,
+					"Responce to not contain 'errors' property": true,
+					"Have all response keys": true
+				},
+				{
+					"Status code is 200": true,
+					"Responce to not contain 'errors' property": true,
+					"Have all response keys": true
+				},
+				{
+					"Status code is 200": true,
+					"Responce to not contain 'errors' property": true,
+					"Have all response keys": true
+				}
+			]
+		},
+		{
+			"id": "c38036f1-66ba-4226-ac7b-15cf89795aa8",
+			"name": "Article should have all mandatory headers",
+			"time": 189,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Response status is 200": true,
+				"Have all response keys": true,
+				"Should contain email and text properties": true
+			},
+			"testPassFailCounts": {
+				"Response status is 200": {
+					"pass": 10,
+					"fail": 0
+				},
+				"Have all response keys": {
+					"pass": 10,
+					"fail": 0
+				},
+				"Should contain email and text properties": {
+					"pass": 10,
+					"fail": 0
+				}
+			},
+			"times": [
+				174,
+				176,
+				177,
+				171,
+				198,
+				174,
+				206,
+				183,
+				200,
+				189
+			],
+			"allTests": [
+				{
+					"Response status is 200": true,
+					"Have all response keys": true,
+					"Should contain email and text properties": true
+				},
+				{
+					"Response status is 200": true,
+					"Have all response keys": true,
+					"Should contain email and text properties": true
+				},
+				{
+					"Response status is 200": true,
+					"Have all response keys": true,
+					"Should contain email and text properties": true
+				},
+				{
+					"Response status is 200": true,
+					"Have all response keys": true,
+					"Should contain email and text properties": true
+				},
+				{
+					"Response status is 200": true,
+					"Have all response keys": true,
+					"Should contain email and text properties": true
+				},
+				{
+					"Response status is 200": true,
+					"Have all response keys": true,
+					"Should contain email and text properties": true
+				},
+				{
+					"Response status is 200": true,
+					"Have all response keys": true,
+					"Should contain email and text properties": true
+				},
+				{
+					"Response status is 200": true,
+					"Have all response keys": true,
+					"Should contain email and text properties": true
+				},
+				{
+					"Response status is 200": true,
+					"Have all response keys": true,
+					"Should contain email and text properties": true
+				},
+				{
+					"Response status is 200": true,
+					"Have all response keys": true,
+					"Should contain email and text properties": true
+				}
+			]
+		},
+		{
+			"id": "afd4af19-1a88-4987-9bfa-44aebf40cf64",
+			"name": "Should be able to upvote",
+			"time": 175,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 10,
+					"fail": 0
+				}
+			},
+			"times": [
+				150,
+				169,
+				190,
+				165,
+				206,
+				168,
+				197,
+				170,
+				160,
+				175
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "fb28f793-ff21-45f3-a266-d3211ad66518",
+			"name": "Should be able to comment article",
+			"time": 185,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 10,
+					"fail": 0
+				}
+			},
+			"times": [
+				189,
+				180,
+				175,
+				164,
+				200,
+				178,
+				184,
+				168,
+				167,
+				185
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				},
+				{
+					"Status code is 200": true
+				}
+			]
+		}
+	],
+	"count": 10,
+	"totalTime": 20897,
+	"collection": {
+		"requests": [
+			{
+				"id": "a9c4fa38-7b0a-4528-8644-a2ec3f9412be",
+				"method": "POST"
+			},
+			{
+				"id": "b4addaa9-854b-4e84-8704-0c0612f8bf90",
+				"method": "POST"
+			},
+			{
+				"id": "83819ce2-252c-4b7c-a07e-5af368c83007",
+				"method": "POST"
+			},
+			{
+				"id": "c10a80ae-815a-4f12-a804-3eeaa0aef8c3",
+				"method": "POST"
+			},
+			{
+				"id": "c38036f1-66ba-4226-ac7b-15cf89795aa8",
+				"method": "GET"
+			},
+			{
+				"id": "afd4af19-1a88-4987-9bfa-44aebf40cf64",
+				"method": "PUT"
+			},
+			{
+				"id": "fb28f793-ff21-45f3-a266-d3211ad66518",
+				"method": "POST"
+			}
+		]
+	}
+}

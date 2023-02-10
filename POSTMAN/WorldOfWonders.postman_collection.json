@@ -1,0 +1,483 @@
+{
+	"info": {
+		"_postman_id": "3561433f-c133-47ed-8a5f-fc17cdae88ab",
+		"name": "WorldOfWonders",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17982896"
+	},
+	"item": [
+		{
+			"name": "Sign up with password length less then 6 characters",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Responce to contain 'error' property\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.response.to.have.jsonBody('error.message', 'WEAK_PASSWORD : Password should be at least 6 characters');\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"somebody1@mail.com\",\r\n    \"password\": \"12345\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyC8cRQEzspAnlqSzqe2-R2WXtD-TcB8el0",
+					"protocol": "https",
+					"host": [
+						"identitytoolkit",
+						"googleapis",
+						"com"
+					],
+					"path": [
+						"v1",
+						"accounts:signUp"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "AIzaSyC8cRQEzspAnlqSzqe2-R2WXtD-TcB8el0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sign up with invalid email",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Responce to contain 'error' property\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.response.to.have.jsonBody('error.message', 'INVALID_EMAIL');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"somebody1mail.com\",\r\n    \"password\": \"12345Qwert!\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyC8cRQEzspAnlqSzqe2-R2WXtD-TcB8el0",
+					"protocol": "https",
+					"host": [
+						"identitytoolkit",
+						"googleapis",
+						"com"
+					],
+					"path": [
+						"v1",
+						"accounts:signUp"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "AIzaSyC8cRQEzspAnlqSzqe2-R2WXtD-TcB8el0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Should be able to create account",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.environment.set('emailWonders', pm.variables.replaceIn('{{$randomEmail}}'));\r",
+							"pm.environment.set('passwordWonders', pm.variables.replaceIn('{{$randomPassword}}'));\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Have all response keys\", function(){\r",
+							"    pm.response.to.have.jsonBody('email')\r",
+							"    pm.response.to.have.jsonBody('idToken')\r",
+							"    pm.response.to.have.jsonBody('kind')\r",
+							"    pm.response.to.have.jsonBody('localId')\r",
+							"    pm.response.to.have.jsonBody('expiresIn', '3600')\r",
+							"});\r",
+							"\r",
+							"var jsonData = JSON.parse(responseBody);\r",
+							"pm.environment.set(\"id_token\", jsonData.idToken);\r",
+							"pm.environment.set(\"emailWonders\", jsonData.email);\r",
+							"\r",
+							"var body = JSON.parse(request.data);\r",
+							" console.log(\"password\", body.password);\r",
+							" var userPassword = body.password;\r",
+							"pm.environment.set(\"passwordWonders\", userPassword);\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"{{emailWonders}}\",\r\n    \"password\": \"{{passwordWonders}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyC8cRQEzspAnlqSzqe2-R2WXtD-TcB8el0",
+					"protocol": "https",
+					"host": [
+						"identitytoolkit",
+						"googleapis",
+						"com"
+					],
+					"path": [
+						"v1",
+						"accounts:signUp"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "AIzaSyC8cRQEzspAnlqSzqe2-R2WXtD-TcB8el0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Should be able to login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Responce to not contain 'errors' property\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.response.to.not.have.jsonBody('errors');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Have all response keys\", function(){\r",
+							"    pm.response.to.have.jsonBody('email')\r",
+							"    pm.response.to.have.jsonBody('idToken')\r",
+							"    pm.response.to.have.jsonBody('registered', true)\r",
+							"    pm.response.to.have.jsonBody('refreshToken')\r",
+							"    pm.response.to.have.jsonBody('expiresIn', '3600')\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"{{emailWonders}}\",\r\n    \"password\": \"{{passwordWonders}}\",\r\n    \"returnSecureToken\": true\r\n}"
+				},
+				"url": {
+					"raw": "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyC8cRQEzspAnlqSzqe2-R2WXtD-TcB8el0",
+					"protocol": "https",
+					"host": [
+						"identitytoolkit",
+						"googleapis",
+						"com"
+					],
+					"path": [
+						"v1",
+						"accounts:signInWithPassword"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "AIzaSyC8cRQEzspAnlqSzqe2-R2WXtD-TcB8el0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Article should have all mandatory headers",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Have all response keys\", function(){\r",
+							"    pm.response.to.have.jsonBody('_id')\r",
+							"    pm.response.to.have.jsonBody('name', 'Machu-Picchu')\r",
+							"    pm.response.to.have.jsonBody('upvotes')\r",
+							"    pm.response.to.have.jsonBody('comments')\r",
+							"    \r",
+							"    pm.response.to.have.jsonBody('upvoteIds')\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Should contain email and text properties\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"\r",
+							"    var postedByProperty = jsonData.comments.map(\r",
+							"            function(filter) {\r",
+							"                return filter.postedBy;\r",
+							"            }\r",
+							"        ).indexOf('niko3@mail.com');\r",
+							"\r",
+							"    var commentsPostedBy = jsonData.comments[postedByProperty];\r",
+							"\r",
+							"    pm.expect(commentsPostedBy).to.exist;\r",
+							"\r",
+							"    pm.expect(commentsPostedBy.text).to.eql('This is so amazing!');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{id_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://reactblog-34a5a.lm.r.appspot.com/api/articles/Machu-Picchu",
+					"protocol": "https",
+					"host": [
+						"reactblog-34a5a",
+						"lm",
+						"r",
+						"appspot",
+						"com"
+					],
+					"path": [
+						"api",
+						"articles",
+						"Machu-Picchu"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Should be able to upvote",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{id_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"canUpvote\": true,\r\n    \"upvotes\": 1,\r\n    \"upvoteIds\": []\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://reactblog-34a5a.lm.r.appspot.com/api/articles/Christ-the-Redeemer/upvote",
+					"protocol": "https",
+					"host": [
+						"reactblog-34a5a",
+						"lm",
+						"r",
+						"appspot",
+						"com"
+					],
+					"path": [
+						"api",
+						"articles",
+						"Christ-the-Redeemer",
+						"upvote"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Should be able to comment article",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"var data = JSON.parse(responseBody);   \r",
+							"pm.expect(\"postedBy\", data[0]).to.eql('postedBy');\r",
+							"pm.expect(\"text\", data[0]).to.eql('text');"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{id_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"postedBy\": \"{{emailWonders}}\",\r\n    \"text\": \"What a beautifull world!\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://reactblog-34a5a.lm.r.appspot.com/api/articles/Petra/comments",
+					"protocol": "https",
+					"host": [
+						"reactblog-34a5a",
+						"lm",
+						"r",
+						"appspot",
+						"com"
+					],
+					"path": [
+						"api",
+						"articles",
+						"Petra",
+						"comments"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "password",
+			"value": ""
+		},
+		{
+			"key": "passwordWonders",
+			"value": ""
+		}
+	]
+}
