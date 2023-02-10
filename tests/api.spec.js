@@ -17,7 +17,7 @@ test("Login - POST request", async() => {
   await ApiUtils.login();
 })
 
-test.only('Article should be visible - GET request', async () => {
+test('Article should be visible - GET request', async () => {
   await ApiUtils.getArticle();
 })
 
