@@ -1,4 +1,6 @@
 name: Playwright Tests
+env:
+  API_KEY: ${{secrets.API_KEY}}
 on:
   push:
     branches: [ main, master ]
