@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "regression": "npx playwright test",
+    "APITests": "npx playwright test --grep @API"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/LazurNiko/ReactBlog_api_tests.git"
@@ -16,7 +19,9 @@
   },
   "homepage": "https://github.com/LazurNiko/ReactBlog_api_tests#readme",
   "devDependencies": {
-    "@playwright/test": "^1.30.0"
+    "@playwright/test": "^1.30.0",
+    "allure": "^0.0.0",
+    "allure-playwright": "^2.0.0-beta.26"
   },
   "dependencies": {
     "dotenv": "^16.0.3"

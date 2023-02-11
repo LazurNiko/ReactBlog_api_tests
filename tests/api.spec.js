@@ -9,23 +9,23 @@ test.beforeEach(async() => {
   ApiUtils = new APIUtils(requestContext);
 })
 
-test("Create account - POST request", async() => {
+test("@API Create account - POST request", async() => {
   response = await ApiUtils.createAccount();
 })
 
-test("Login - POST request", async() => {
+test("@API Login - POST request", async() => {
   await ApiUtils.login();
 })
 
-test('Article should be visible - GET request', async () => {
+test('@API Article should be visible - GET request', async () => {
   await ApiUtils.getArticle();
 })
 
-test('Authenticated user should be able to comment an article - POST request', async () => {
+test('@API Authenticated user should be able to comment an article - POST request', async () => {
   await ApiUtils.commentArticle();
 })
 
-test('Authenticated user should be able to upvote an article - PUT request', async () => {
+test('@API Authenticated user should be able to upvote an article - PUT request', async () => {
   await ApiUtils.upvoteArticle();
 })
 
